@@ -11,7 +11,7 @@ import time
 from bs4 import BeautifulSoup
 import requests
 from abc import abstractmethod, ABC
-from typing import Any, Set
+from typing import Any, Set, Any
 
 DRIVER_PATH = 'chromedriver'
 # option.add_argument('headless')
@@ -29,4 +29,12 @@ class CrawlData(ABC):
 
     @abstractmethod
     def get_product_urls(self) -> Set:
+        pass
+
+    @abstractmethod
+    def generate_label(self, product_name, information) -> str:
+        pass
+
+    @abstractmethod
+    def get_content_from_url(self, url: str) -> Any:
         pass
